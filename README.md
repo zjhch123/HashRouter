@@ -42,7 +42,7 @@ http://test.hduzplus.xyz/page3
 </IfModule>
 ```
 
-### 路由实现
+### 基于hash的路由实现
 实现非常简单，无非就是注册对象，监听hashchange，执行相应的函数。
 选择使用hash方式的路由的原因是因为就活动开发而言，开发者无法直接对服务端进行配置。
 实现代码如下
@@ -102,4 +102,24 @@ class Router {
 }
 
 export default Router
+```
+
+使用方式：
+```
+import Router from './Router'
+
+const router = new Router([
+  {
+    path: 'page1',
+    beforeChange: () => {},
+    change: () => {},
+    afterChange: () => {}
+  },
+  {
+    path: 'page2',
+    beforeChange: () => {},
+    change: () => {},
+    afterChange: () => {}
+  },
+])
 ```
